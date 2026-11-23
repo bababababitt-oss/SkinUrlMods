@@ -1,0 +1,14 @@
+[
+{
+  "modid": "skinurl",
+  "name": "Skin URL",
+  "description": "Troca a sua skin por um link (URL) e todos que tiverem o mod veem. Use /skinurl <link>.",
+  "version": "${version}",
+  "mcversion": "1.7.10",
+  "authorList": [],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
