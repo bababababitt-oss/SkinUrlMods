@@ -1,0 +1,28 @@
+name: Build mod
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Organizar pastas
+        run: |
+          mkdir -p src/main/java/com/skinurl src/main/resources
+          mv *.java src/main/java/com/skinurl/
+          mv mcmod.info src/main/resources/
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 8
+      - uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 2.14.1
+      - name: Build
+        run: gradle setupCIWorkspace build --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SkinUrl-jar
+          path: build/libs/*.jar
+          
